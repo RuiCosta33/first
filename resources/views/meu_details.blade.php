@@ -64,7 +64,6 @@
         }
     </style>
 </head>
-{!! $MyNavBar->asUl() !!}
 <body>
 <div class="flex-center position-ref full-height">
     @if (Route::has('login'))
@@ -80,7 +79,9 @@
             @endauth
         </div>
     @endif
-
+        <nav class="navigation">
+            {!! $MyNavBar->asUl() !!}
+        </nav>
     <div class="content">
         <div class="title m-b-md">
            Info

@@ -177,6 +177,10 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+
+
+        Lavary\Menu\ServiceProvider::class,
+
     ],
 
     /*
@@ -230,6 +234,7 @@ return [
 
 
 
+        'Menu' => Lavary\Menu\Facade::class,
         'Menu' => Lavary\Menu\Facade::class,
     ],
 

@@ -12,7 +12,8 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "lavary/laravel-menu": "^1.7"
+        "lavary/laravel-menu": "^1.7",
+        "spatie/laravel-menu": "^3.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
