@@ -80,7 +80,7 @@
         </div>
     @endif
         <nav class="navigation">
-            {!! $MyNavBar->asUl() !!}
+            Menu
         </nav>
     <div class="content">
         <div class="title m-b-md">
