@@ -12,11 +12,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $userInfo = [
-            'name' => 'Rui',
-            'address' => 'Rua da escola ',
-        ];
-    return view('meu', ['user' => $userInfo]);
+        return view('meu');
 
 
     }
@@ -27,11 +23,7 @@ class UserController extends Controller
      */
 
     public function details(){
-        $userInfo = [
-            'name' => 'Rui',
-            'address' => 'Rua da escola ',
-        ];
-        return view('meu_details', ['details' => $userInfo]);
+        return view('meu_details');
     }
 
 
@@ -95,4 +87,5 @@ class UserController extends Controller
     {
         //
     }
+
 }

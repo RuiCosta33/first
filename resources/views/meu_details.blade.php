@@ -79,17 +79,15 @@
             @endauth
         </div>
     @endif
-        <nav class="navigation">
-            Menu
-        </nav>
     <div class="content">
         <div class="title m-b-md">
            Info
         </div>
 
         <div class="links">
-           <h3> Nome - {!! $details['name'] !!} </h3>
-           <h3> Morada - {!! $details['address'] !!}</h3>
+            <h3>Nome - {{$details -> name}}</h3>
+            <h3>Email - {{$details -> email}}</h3>
+            <h3>Conta Criada em  - {{$details -> updated_at}}</h3>
         </div>
     </div>
 </div>
