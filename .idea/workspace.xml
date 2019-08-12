@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07e1c0a5-7ebc-45cf-ac2c-9855df3d62fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/generic.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/pt/generic.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user_edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/meu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/meu_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meu_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -126,6 +124,9 @@
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
     </include_path>
   </component>
   <component name="ProjectId" id="1P6KpzHtAyLtjvMQ0FgHdgMkxa9" />
@@ -138,6 +139,10 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\views" />
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\views\layouts" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\costa\Documents\Projects\first\resources\lang\pt" />
     </key>
@@ -181,7 +186,8 @@
       <workItem from="1565307205961" duration="6520000" />
       <workItem from="1565357193672" duration="19941000" />
       <workItem from="1565450302818" duration="4632000" />
-      <workItem from="1565570302998" duration="7080000" />
+      <workItem from="1565570302998" duration="7928000" />
+      <workItem from="1565615390434" duration="16236000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1565201647066</created>
@@ -204,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565314419736</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="TUDO CERTO PARSA&#10;    -admin&#10;    -delete&#10;    -edit">
+      <created>1565579022557</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1565579022557</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +242,7 @@
     <MESSAGE value="Second Commit" />
     <MESSAGE value="clean up code" />
     <MESSAGE value="TUDO CERTO PARSA&#10;    -login&#10;    -registo&#10;    -bem-vindo&#10;    -detalhes" />
-    <option name="LAST_COMMIT_MESSAGE" value="TUDO CERTO PARSA&#10;    -login&#10;    -registo&#10;    -bem-vindo&#10;    -detalhes" />
+    <MESSAGE value="TUDO CERTO PARSA&#10;    -admin&#10;    -delete&#10;    -edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="TUDO CERTO PARSA&#10;    -admin&#10;    -delete&#10;    -edit" />
   </component>
 </project>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -41,6 +42,34 @@ class HomeController extends Controller
 
         return  view('meu_details', ['details'=>$details, 'users'=>$user]);
 
+    }
+
+
+    public function update(Request $request,$id)
+    {
+            $name= $request->name;
+            $email= $request->email;
+        try{
+
+            $user = User::findOrFail($id);
+            if(null !== $user){
+                $user->fill(['name' => $name ]);
+                $user->fill(['email' => $email]);
+                $user->save();
+
+            }
+
+            else{
+                echo "erro";exit;
+            }
+
+        }
+        catch (\Exception $e){
+            dd($e);
+        }
+        $users = DB::table('users')->get();
+        $details = auth()->user();
+        return view('meu_details',['users'=>$users, 'details'=> $details]);
     }
 
 

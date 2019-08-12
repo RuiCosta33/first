@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     @if (auth()->check())
         @if (auth()->user()->level == 4)
             <div class="container" align="center">

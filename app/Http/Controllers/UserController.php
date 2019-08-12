@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\User;
 
 class UserController extends Controller
 {
@@ -31,7 +32,7 @@ class UserController extends Controller
 
     public function create()
     {
-        //
+
     }
 
     /**
@@ -51,9 +52,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-
+    public function show(Request $request,$id){
+        //
     }
 
     /**
@@ -94,6 +94,13 @@ class UserController extends Controller
         $user=DB::table('users')->get();
         $details = auth()->user() ;
         return view('meu_details',['users'=>$user, 'details'=> $details]);
+    }
+
+
+
+    public function us(Request $request, $id)
+    {
+
     }
 
     /**
