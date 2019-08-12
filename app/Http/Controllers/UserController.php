@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -62,7 +64,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = DB::table('users')->where('id', $id)->first() ;
+        $details = auth()->user() ;
+        return  view('user_edit', ['user'=>$user, 'details'=> $details]);
     }
 
     /**
@@ -74,7 +78,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $password_confirm = $request->input('password_confirmation');
+        if($password === $password_confirm){
+            $pass = Hash::make($password);
+        }
+        DB::table('users')
+            ->where('id', $id)
+            ->update(
+                ['email' => $email, 'name' => $name, 'password'=> $pass]
+            );
+
+        $user=DB::table('users')->get();
+        $details = auth()->user() ;
+        return view('meu_details',['users'=>$user, 'details'=> $details]);
     }
 
     /**
@@ -85,7 +104,14 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('users')->where('id', $id)->delete();
+
+        $user=DB::table('users')->get();
+        $details = auth()->user() ;
+        return view('meu_details',['users'=>$user, 'details'=> $details]);
     }
+
+
+
 
 }
