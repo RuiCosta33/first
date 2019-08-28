@@ -6,6 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+
 
 class HomeController extends Controller
 {
@@ -24,20 +26,27 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $user=DB::table('users')->get();
-        $details = auth()->user() ;
-        $name = auth()->user()->name ;
+    public function index(){
+        $details = auth()->user();
+        return view('meu', ['user' => $details]);
 
-        return  view('meu', ['user'=>$name,'details'=>$details, 'users'=>$user]);
+    }
+
+    public function show(Request $request,$id){
+        $users = DB::table('users')->paginate(5);
+        $details = auth()->user();
+        return view('meu_details',['users'=>$users, 'details'=> $details]);
 
 }
 
 
+
+
+
+
     public function details()
     {
-        $user=DB::table('users')->get();
+        $user=DB::table('users')->paginate(5);
         $details = auth()->user() ;
 
         return  view('meu_details', ['details'=>$details, 'users'=>$user]);
@@ -45,8 +54,7 @@ class HomeController extends Controller
     }
 
 
-    public function update(Request $request,$id)
-    {
+    public function update(Request $request,$id){
             $name= $request->name;
             $email= $request->email;
         try{
@@ -67,7 +75,7 @@ class HomeController extends Controller
         catch (\Exception $e){
             dd($e);
         }
-        $users = DB::table('users')->get();
+        $users = DB::table('users')->paginate(5);
         $details = auth()->user();
         return view('meu_details',['users'=>$users, 'details'=> $details]);
     }

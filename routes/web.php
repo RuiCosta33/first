@@ -31,12 +31,25 @@ Route::get('/edit', 'HomeController@edit')->name('edit');
 
 Route::get('/edit_ad/{id}', 'UserController@edit')->name('edit_ad');
 
-Route::resources(['users' => 'UserController',
+Route::resources([
+                    'users' => 'UserController',
+                  'post'=>'PostController',
                   'admin' => 'HomeController'
     ]);
+Route::resource('posts', 'PostController')->only([
+    'destroy', 'destroy'
+]);
 
+
+Route::get('/add',  'UserController@create')->name('insert');
 
 Route::get('/del/{id}',  'UserController@destroy')->name('del');
+
+
+
+Route::get('/insert', function(){ return view('add');})->name('add');
+
+
 
 
 Route::any('/search',function(){
@@ -46,8 +59,29 @@ Route::any('/search',function(){
         return view('search')->withDetails($user)->withQuery ( $q );
 
     else{
-        $user=DB::table('users')->get();
+        $user=DB::table('users')->paginate(5);
     $details = auth()->user() ;
     $alert='User not found';
         return view ( 'meu_details',  ['details'=>$details, 'users'=>$user, 'ver'=>$alert]);}
 });
+
+
+Route::get('/post_details/{id_post}/{ut_post}', 'PostController@details')->name('post_details');
+
+Route::get('/mensagens', 'PostController@basic')->name('messages');
+
+Route::get('/us_post', 'PostController@show')->name('us_post');
+
+Route::get('/post_user', 'PostController@uspost')->name('post_user');
+
+Route::get('/post_user/{id}', 'PostController@form')->name('postform');
+
+Route::get('/create/{id}',  'PostController@create')->name('create');
+
+Route::get('/add_post',  'HomeController@post')->name('add_post');
+
+Route::get('/respond/{id}/{post}/{us_id}',  'PostController@edit')->name('respond');
+
+Route::resource('market', 'MarketController');
+
+

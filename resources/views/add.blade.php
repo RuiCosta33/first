@@ -13,9 +13,9 @@
             <div class="title"  align="center">  Insert</div> <br>
 
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('insert') }}">
         @csrf
-
+        @method('PUT')
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 

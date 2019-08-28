@@ -87,8 +87,9 @@
                         <a class="btn btn-primary"  name ="{{$user -> id}}" href="{{route('del', $user -> id)}}"> Delete</a>
                     </td>
                 </tr>
-                </tbody>
-            @endforeach </table></div>
+                </tbody>{{ $users->links() }}
+            @endforeach  </table></div>
+                <div class="container" align="center"></div>
 
             @else
     <div class="container" align="justify">
@@ -99,6 +100,9 @@
                         <h3>Email - {{$details -> email}}</h3>
                         <h3>Conta Criada em  - {{$details -> updated_at}}</h3>
                             <a class="btn btn-primary"href="{{route('edit')}}" >Editar Informação</a>
+                            <a class="btn btn-primary"href="{{route('messages')}}" >Fazer um Post</a>
+                            <a class="btn btn-primary"href="{{route('post_user')}}" >Ver meus posts</a>
+                            <a class="btn btn-primary"href="{{route('us_post')}}" >Ver todos os posts</a>
                     </div>
     </div>
 

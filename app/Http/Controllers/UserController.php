@@ -30,9 +30,22 @@ class UserController extends Controller
     }
 
 
-    public function create()
+    public function create(Request $request)
     {
-
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $password_confirm = $request->input('password_confirmation');
+        if($password === $password_confirm){
+            $pass = Hash::make($password);
+        }
+        DB::table('users')
+            ->insert(
+                ['email' => $email, 'name' => $name, 'password'=> $pass]
+            );
+        $user=DB::table('users')->paginate(1);
+        $details = auth()->user() ;
+        return view('meu_details',['users'=>$user, 'details'=> $details]);
     }
 
     /**
@@ -91,7 +104,7 @@ class UserController extends Controller
                 ['email' => $email, 'name' => $name, 'password'=> $pass]
             );
 
-        $user=DB::table('users')->get();
+        $user=DB::table('users')->paginate(5);
         $details = auth()->user() ;
         return view('meu_details',['users'=>$user, 'details'=> $details]);
     }
@@ -113,7 +126,7 @@ class UserController extends Controller
     {
         DB::table('users')->where('id', $id)->delete();
 
-        $user=DB::table('users')->get();
+        $user=DB::table('users')->paginate(5);
         $details = auth()->user() ;
         return view('meu_details',['users'=>$user, 'details'=> $details]);
     }

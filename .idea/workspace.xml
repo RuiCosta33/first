@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07e1c0a5-7ebc-45cf-ac2c-9855df3d62fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/search.blade.php" afterDir="false" />
+    <list default="true" id="07e1c0a5-7ebc-45cf-ac2c-9855df3d62fe" name="Default Changelist" comment="TUDO CERTO PARSA&#10;    -search bar&#10;    -tudo certo (aparentemente)">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MarketController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_14_143442_create_post_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_14_172429_add_idut_to_post_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_134952_create_messages_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_170259_create_responds_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_21_162043_create_market_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_23_170759_add_image_to_market_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel-echo-server.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/chat.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/market.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/post.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/post_details.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/post_edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/post_profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/posts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/meu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/meu_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meu_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,6 +61,13 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="first" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -127,24 +165,31 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/vendor/predis/predis" />
     </include_path>
   </component>
   <component name="ProjectId" id="1P6KpzHtAyLtjvMQ0FgHdgMkxa9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/pt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\costa\Documents\Projects\first\app\Http\Controllers" />
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\lang\pt" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\costa\Documents\Projects\first\resources\views" />
       <recent name="C:\Users\costa\Documents\Projects\first\resources\views\layouts" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\costa\Documents\Projects\first\resources\lang\pt" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -187,7 +232,18 @@
       <workItem from="1565357193672" duration="19941000" />
       <workItem from="1565450302818" duration="4632000" />
       <workItem from="1565570302998" duration="7928000" />
-      <workItem from="1565615390434" duration="16236000" />
+      <workItem from="1565615390434" duration="19668000" />
+      <workItem from="1565701872092" duration="2145000" />
+      <workItem from="1565708554213" duration="2742000" />
+      <workItem from="1565788947321" duration="18281000" />
+      <workItem from="1565965837314" duration="11886000" />
+      <workItem from="1566220918165" duration="3003000" />
+      <workItem from="1566224582481" duration="26454000" />
+      <workItem from="1566394779423" duration="13781000" />
+      <workItem from="1566480183740" duration="1989000" />
+      <workItem from="1566566516828" duration="26702000" />
+      <workItem from="1566825445933" duration="12974000" />
+      <workItem from="1566913587033" duration="20785000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1565201647066</created>
@@ -217,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565579022557</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="TUDO CERTO PARSA&#10;    -search bar&#10;    -tudo certo (aparentemente)">
+      <created>1565631934800</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1565631934800</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,10 +302,12 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Second Commit" />
     <MESSAGE value="clean up code" />
     <MESSAGE value="TUDO CERTO PARSA&#10;    -login&#10;    -registo&#10;    -bem-vindo&#10;    -detalhes" />
     <MESSAGE value="TUDO CERTO PARSA&#10;    -admin&#10;    -delete&#10;    -edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="TUDO CERTO PARSA&#10;    -admin&#10;    -delete&#10;    -edit" />
+    <MESSAGE value="TUDO CERTO PARSA&#10;    -search bar&#10;    -tudo certo (aparentemente)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TUDO CERTO PARSA&#10;    -search bar&#10;    -tudo certo (aparentemente)" />
   </component>
 </project>

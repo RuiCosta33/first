@@ -16,8 +16,9 @@
                         @endif
 
                         <div class="title m-b-md">
-                            Bem vindo - <a> {{$user}}</a><br>
-                            <a href="{{route('details')}}">Trabalhinho?</a>
+                            Bem vindo - <a> {{$user->name}}</a><br>
+                            <a class="btn btn-primary" href="{{route('details')}}">Utilizadores</a>
+                            <a class="btn btn-primary" href="{{route('us_post')}}">Posts</a>
                         </div>
                     </div>
 
@@ -36,7 +37,7 @@
                         @endif
 
                         <div class="title m-b-md">
-                            Bem vindo - <a href="{{route('details')}}"> {{$user}}</a>
+                            Bem vindo - <a href="{{route('details')}}"> {{$user->name}}</a>
                         </div>
                     </div>
 
