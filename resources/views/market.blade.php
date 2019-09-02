@@ -1,8 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.appu')
 
 @section('content')
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <style>
         .alert {
             padding: 20px;

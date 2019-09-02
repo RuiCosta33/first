@@ -1,50 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07e1c0a5-7ebc-45cf-ac2c-9855df3d62fe" name="Default Changelist" comment="TUDO CERTO PARSA&#10;    -search bar&#10;    -tudo certo (aparentemente)">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MarketController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_14_143442_create_post_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_14_172429_add_idut_to_post_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_134952_create_messages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_170259_create_responds_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_21_162043_create_market_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_23_170759_add_image_to_market_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel-echo-server.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/chat.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/market.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/post.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/post_details.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/post_edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/post_profile.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/posts.blade.php" afterDir="false" />
+    <list default="true" id="07e1c0a5-7ebc-45cf-ac2c-9855df3d62fe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/material/img/laravel (2).svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/market.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MarketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MarketController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_21_162043_create_market_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_21_162043_create_market_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/market.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/market.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/meu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/meu_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meu_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/post_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/post_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/post_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post_profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -168,6 +161,7 @@
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/vendor/laravel-frontend-presets/material-dashboard" />
     </include_path>
   </component>
   <component name="ProjectId" id="1P6KpzHtAyLtjvMQ0FgHdgMkxa9" />
@@ -183,13 +177,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\costa\Documents\Projects\first\resources" />
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\sass" />
+      <recent name="C:\Users\costa\Documents\Projects\first\public" />
+      <recent name="C:\Users\costa\Documents\Projects\first\public\css" />
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\costa\Documents\Projects\first\app\Http\Controllers" />
       <recent name="C:\Users\costa\Documents\Projects\first\resources\lang\pt" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\costa\Documents\Projects\first\resources\views" />
-      <recent name="C:\Users\costa\Documents\Projects\first\resources\views\layouts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -243,7 +240,12 @@
       <workItem from="1566480183740" duration="1989000" />
       <workItem from="1566566516828" duration="26702000" />
       <workItem from="1566825445933" duration="12974000" />
-      <workItem from="1566913587033" duration="20785000" />
+      <workItem from="1566913587033" duration="20901000" />
+      <workItem from="1566998891733" duration="4341000" />
+      <workItem from="1567085111139" duration="8937000" />
+      <workItem from="1567174171214" duration="104000" />
+      <workItem from="1567174429794" duration="13458000" />
+      <workItem from="1567430510787" duration="14349000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1565201647066</created>
@@ -280,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565631934800</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="TUDO CERTO PARSA&#10;    -market completo&#10;    -posts completo">
+      <created>1566960657079</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1566960657079</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +317,7 @@
     <MESSAGE value="TUDO CERTO PARSA&#10;    -login&#10;    -registo&#10;    -bem-vindo&#10;    -detalhes" />
     <MESSAGE value="TUDO CERTO PARSA&#10;    -admin&#10;    -delete&#10;    -edit" />
     <MESSAGE value="TUDO CERTO PARSA&#10;    -search bar&#10;    -tudo certo (aparentemente)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TUDO CERTO PARSA&#10;    -search bar&#10;    -tudo certo (aparentemente)" />
+    <MESSAGE value="TUDO CERTO PARSA&#10;    -market completo&#10;    -posts completo" />
+    <option name="LAST_COMMIT_MESSAGE" value="TUDO CERTO PARSA&#10;    -market completo&#10;    -posts completo" />
   </component>
 </project>

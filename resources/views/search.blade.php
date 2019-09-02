@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appu')
 
 @section('content')
 
@@ -41,7 +41,7 @@
                         @foreach($details as $user)
                             <tr>
                                 <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
+                                <td>{{$user->descricao}}</td>
                                 <td >
 
                                     <a class="btn btn-primary" name ="{{$user -> id}}" href="{{route('edit_ad', $user -> id)}}"> Edit</a>

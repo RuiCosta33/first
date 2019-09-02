@@ -6,9 +6,6 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-
-
 class HomeController extends Controller
 {
     /**
@@ -24,74 +21,52 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\View\View
      */
-    public function index(){
-        $details = auth()->user();
-        return view('meu', ['user' => $details]);
+    public function index()
+    {
+        if(auth()->user()-> level == "4"){
+           return view('dashboard');
+        }
+        elseif(auth()->user()->level == "1"){
+            $user=auth()->user();
+            return view('meu', ['user' => $user]);
+
+        }
 
     }
-
-    public function show(Request $request,$id){
-        $users = DB::table('users')->paginate(5);
-        $details = auth()->user();
-        return view('meu_details',['users'=>$users, 'details'=> $details]);
-
-}
-
-
-
-
-
-
     public function details()
     {
-        $user=DB::table('users')->paginate(5);
+        $user=DB::table('users')->get();
         $details = auth()->user() ;
-
         return  view('meu_details', ['details'=>$details, 'users'=>$user]);
-
     }
-
-
-    public function update(Request $request,$id){
-            $name= $request->name;
-            $email= $request->email;
+    public function update(Request $request,$id)
+    {
+        $name= $request->name;
+        $email= $request->email;
         try{
-
             $user = User::findOrFail($id);
             if(null !== $user){
                 $user->fill(['name' => $name ]);
                 $user->fill(['email' => $email]);
                 $user->save();
-
             }
-
             else{
                 echo "erro";exit;
             }
-
         }
         catch (\Exception $e){
             dd($e);
         }
-        $users = DB::table('users')->paginate(5);
+        $users = DB::table('users')->get();
         $details = auth()->user();
         return view('meu_details',['users'=>$users, 'details'=> $details]);
     }
-
-
     public function edit()
     {
-
         $details = auth()->user() ;
         $name = auth()->user()->name ;
-
         return  view('user_edit', ['user'=>$name, 'details'=> $details]);
-
     }
-
-
-
-
 }

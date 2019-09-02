@@ -74,7 +74,7 @@ class MarketController extends Controller
             if($names->name ==  $nome ) {
                 $erro='nada';
                 $prod=DB::table('market')->get();
-                return view('market', ['erro'=>$erro,'prod'=>$prod]);
+                return redirect()->route('table' );
             }
             else{
                 DB::table('market')
@@ -83,10 +83,11 @@ class MarketController extends Controller
                     );
                 $add='add';
                 $prod=DB::table('market')->get();
-                return view('market', ['add'=>$add, 'prod'=>$prod]);
+                return redirect()->route('table');
             }
 
         }
+
 
 
     }
@@ -136,9 +137,9 @@ class MarketController extends Controller
             ->update(
                 ['name' => $nome, 'descricao' => $desc, 'preco'=> $preco, 'updated_at'=>NOW()]
             );
-        $add='add';
+        $edit='edit';
         $prod=DB::table('market')->get();
-        return view('market', ['add'=>$add, 'prod'=>$prod]);
+        return redirect()->route('table');
     }
 
     /**
@@ -153,7 +154,7 @@ class MarketController extends Controller
 
      * @return string
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
         $photo = DB::table('market')->where('id',$id)->get('image');
         foreach ($photo as $photos){
@@ -164,6 +165,6 @@ class MarketController extends Controller
         DB::table('market')->where('id', $id)->delete();
 
         $prod=DB::table('market')->get();
-        return view('market',['prod'=>$prod]);
+        return view('pages.table_list',['prod'=>$prod]);
     }
 }

@@ -54,15 +54,14 @@ Route::get('/insert', function(){ return view('add');})->name('add');
 
 Route::any('/search',function(){
     $q = Input::get ( 'q' );
-    $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    $user = DB::table('market')->where('name','LIKE','%'.$q.'%')->orWhere('descricao','LIKE','%'.$q.'%')->get();
     if(count($user) > 0)
-        return view('search')->withDetails($user)->withQuery ( $q );
+        return view('pages.search')->withDetails($user)->withQuery ( $q );
 
     else{
-        $user=DB::table('users')->paginate(5);
-    $details = auth()->user() ;
+        $user=DB::table('market')->paginate(5);
     $alert='User not found';
-        return view ( 'meu_details',  ['details'=>$details, 'users'=>$user, 'ver'=>$alert]);}
+        return view ( 'pages.market',  [ 'details'=>$user, 'ver'=>$alert]);}
 });
 
 
@@ -84,4 +83,59 @@ Route::get('/respond/{id}/{post}/{us_id}',  'PostController@edit')->name('respon
 
 Route::resource('market', 'MarketController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::resource('market', 'MarketController');
+
+	Route::get('table-list', function () {
+	    $prod=DB::table('market')->get();
+		 return view('pages.market',['prod' => $prod]);
+	})->name('table');
+
+    Route::get('market_edit/{id}', function ($id) {
+        $prod=DB::table('market')->where('id', $id)->get();
+        return view('pages.market_edit', ['prod' => $prod]);
+    })->name('market_edit');
+
+
+    Route::get('add_prod', function () {
+        return view('pages.prod_add');
+    })->name('add_prod');
+
+	Route::get('typography', function () {
+		return view('pages.typography');
+	})->name('typography');
+
+	Route::get('icons', function () {
+		return view('pages.icons');
+	})->name('icons');
+
+	Route::get('map', function () {
+		return view('pages.map');
+	})->name('map');
+
+	Route::get('notifications', function () {
+		return view('pages.notifications');
+	})->name('notifications');
+
+	Route::get('rtl-support', function () {
+		return view('pages.language');
+	})->name('language');
+
+	Route::get('upgrade', function () {
+		return view('pages.upgrade');
+	})->name('upgrade');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::resource('user', 'UserController', ['except' => ['show']]);
+	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+});
 
