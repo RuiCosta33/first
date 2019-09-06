@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Input;
+use Illuminate\Database\Eloquent\Model;
 use App\User;
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,7 @@ Route::get('/insert', function(){ return view('add');})->name('add');
 
 
 Route::any('/search',function(){
+
     $q = Input::get ( 'q' );
     $user = DB::table('market')->where('name','LIKE','%'.$q.'%')->orWhere('descricao','LIKE','%'.$q.'%')->get();
     if(count($user) > 0)
@@ -61,7 +63,7 @@ Route::any('/search',function(){
     else{
         $user=DB::table('market')->paginate(5);
     $alert='User not found';
-        return view ( 'pages.market',  [ 'details'=>$user, 'ver'=>$alert]);}
+        return view ( 'pages.market.market',  [ 'details'=>$user, 'ver'=>$alert]);}
 });
 
 
@@ -91,25 +93,40 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('market', 'MarketController');
+    Route::resource('post', 'PostController');
+    Route::resource('respond', 'RespondController');
 
-	Route::get('table-list', function () {
-	    $prod=DB::table('market')->get();
-		 return view('pages.market',['prod' => $prod]);
-	})->name('table');
+	Route::get('market', function () {
+        $prod = App\Market:: all();
+		 return view('pages.market.market',['prod' => $prod]);
+	})->name('market');
 
     Route::get('market_edit/{id}', function ($id) {
-        $prod=DB::table('market')->where('id', $id)->get();
-        return view('pages.market_edit', ['prod' => $prod]);
+        $prod=App\Market:: find($id);
+        return view('pages.market.market_edit', ['prod' => $prod]);
     })->name('market_edit');
 
 
     Route::get('add_prod', function () {
-        return view('pages.prod_add');
+        return view('pages.market.prod_add');
     })->name('add_prod');
 
-	Route::get('typography', function () {
-		return view('pages.typography');
-	})->name('typography');
+    Route::get('add_posts', function () {
+        return view('pages.post.add_post');
+    })->name('add_posts');
+
+    Route::get('post_edit/{id}', function ($id) {
+        $post=App\Post::where('id',$id)
+                    ->get();
+
+        return view('pages.post.post_edit', ['post' => $post]);
+    })->name('post_edit');
+
+	Route::get('post', function () {
+        $post = App\Post:: all();
+		return view('pages.post.typography',['post'=>$post]);
+	})->name('post');
+
 
 	Route::get('icons', function () {
 		return view('pages.icons');

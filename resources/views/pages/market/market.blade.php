@@ -1,6 +1,13 @@
 @extends('layouts.app', ['activePage' => 'table', 'titlePage' => __('Table List')])
 
 @section('content')
+
+
+    <style>
+        .alert.success {background-color: #4CAF50;}
+        .alert.info {background-color: #2196F3;}
+        .alert.warning {background-color: #ff9800;}
+    </style>
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -13,7 +20,35 @@
 
 
           <div class="card-body">
+
+
             <div class="table-responsive">
+                @if($_GET['ver'])
+
+                    {{!$ver=$_GET['ver']}}
+                    @if($ver=='nada')
+
+                        <div class="alert warning">
+                            <span class="closebtn">&times;</span>
+                            <strong>Repetided Produto</strong> UI not amadorez jovem! 😎
+                        </div>
+                        @elseif($ver=='edit')
+                        <div class="alert success">
+                            <span class="closebtn">&times;</span>
+                            <strong>Successoz!</strong> IU editate a produto! 👍
+                        </div>
+                    @elseif($ver=='del')
+                        <div class="alert">
+                            <span class="closebtn">&times;</span>
+                            <strong>Apagated!</strong> IU jast apagate a produto! 👎
+                        </div>
+                        @else
+                        <div class="alert info">
+                            <span class="closebtn">&times;</span>
+                            <strong>Adicionated!</strong> IU adissionat a produto! 🤙
+                        </div>
+                        @endif
+                @endif
                 <a href="{{route('add_prod')}}" class='btn btn-primary'>Adicionar</a>
               <table class="table">
                 <thead class=" text-primary">
@@ -48,7 +83,7 @@
                                   <td>{{$prods->name}}</td>
                                   <td>{{$prods->descricao}}</td>
                                   <td>{{$prods->preco}}</td>
-                                  <td><a href="{{route('market_edit', $prods->id)}}" class='btn btn-primary'>Editar</a></td>
+                                  <td><a href="{{route('market.edit', $prods->id)}}" class='btn btn-primary'>Editar</a></td>
                                   <td><button type='submit' class='btn btn-primary'>Eliminar</button></td>
                               </tr>
                               </tbody>

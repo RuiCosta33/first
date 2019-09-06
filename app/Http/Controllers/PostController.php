@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
+use App\Respond;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
@@ -16,7 +20,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -27,25 +31,23 @@ class PostController extends Controller
      * Show the form for creating a new resource.
      *
      * @param Request $request
-     * @param $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function create(Request $request, $id){
+    public function create(Request $request){
 
-        $title = $request->input('title');
-        $message = $request->input('text');
-        DB::table('post')
-            ->insert(
-                ['title' => $title, 'message' => $message, 'idut'=> $id,'created_at'=>NOW()]
-            );
-        $details = auth()->user() ;
-        return redirect()->route('details', ['details'=> $details]);
+        $post = new Post;
+$id=Auth::user()->id;
+        $post->title = $request->title;
+        $post->message = $request->text;
+        $post->idut = $id;
+        $post->save();
+        return redirect()->route('post');
     }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -56,23 +58,23 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show()
     {
-        $post=DB::table('post')->paginate(5);
-        return view('posts', ['posts' => $post]);
+        $post=Post::paginate(5);
+        return view('frontoffice.posts.posts', ['posts' => $post]);
     }
     public function basic()
     {
         $id = auth()->user()->id;
-        return view('post', ['id' => $id]);
+        return view('frontoffice.posts.post', ['id' => $id]);
     }
 
     public function form($id)
     {
-        $post = DB::table('post')->where('id', $id)->get();
-        return view('post_edit', ['post' => $post]);
+        $post = Post::where('id', $id)->get();
+        return view('frontoffice.posts.post_edit', ['post' => $post]);
     }
 
     /**
@@ -87,27 +89,20 @@ class PostController extends Controller
     public function edit(Request $request, $id, $post, $us_id)
     {
         $message = $request->input('text');
-        $id_res=DB::table('responds')->where('respond', $message)->get('respond');
+        $id_res=Respond::where('respond', $message)->get('respond');
 
         if($id_res != $message) {
-            DB::table('responds')
-                ->insert(
+            Respond::insert(
                     ['id_post' => $post, 'id_us_res' => $us_id, 'respond' => $message, 'created_at'=>NOW()]
                 );
-            $post=DB::table('post')->where('id',$post)->paginate(5);
-            $user=DB::table('users')->where('id',$id)->get();
-            $id_res=DB::table('responds')->where('respond', $message)->get();
-            return view('posts',['user'=>$user, 'posts'=> $post, 'res'=>$id_res, 'bool'=> true]);
+            $post=Post::where('id',$post)->paginate(5);
+            $user=User::where('id',$id)->get();
+            $id_res=Respond::where('respond', $message)->get();
+            return view('frontoffice.posts.posts',['user'=>$user, 'posts'=> $post, 'res'=>$id_res, 'bool'=> true]);
         }
         else{
             echo "prank2";exit;
-        $post=DB::table('post')->where('id',$post)->get();
-        $user=DB::table('users')->where('id',$id)->get();
-        $id_res=DB::table('responds')->where('respond', $message)->get();
-            foreach($res as $resp){
-                $name=DB::table('users')->where('id',$resp->id_us_res)->get();
-            }
-        return view('post_details',['user'=>$user, 'post'=> $post, 'res'=>$id_res, 'name'=>$name]);}
+        }
     }
 
     /**
@@ -115,44 +110,44 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
 {
     $title = $request->input('title');
     $message = $request->input('text');
 
-    DB::table('post')
-        ->where('id', $id)
+    Post:: where('id', $id)
         ->update(
             ['title' => $title, 'message' => $message]
         );
 
-    $user=DB::table('users')->paginate(5);
+    $user=User::paginate(5);
     $details = auth()->user() ;
-    return view('meu_details',['users'=>$user, 'details'=> $details]);
+    return redirect('post');
 
 }
     public function details($id_post, $ut_post)
 {
 
-    $res=DB::table('responds')->where('id_post', $id_post)->get();
-    $resp=DB::table('responds')->where('id_post', $id_post)->get('id_us_res');
-    $post=DB::table('post')->where('id',$id_post)->get();
-    $user=DB::table('users')->where('id',$ut_post)->get();
+    $res=Respond::where('id_post', $id_post)->get();
+    $resp=Respond::where('id_post', $id_post)->get('id_us_res');
+    $post=Post::where('id',$id_post)->get();
+    $user=User::where('id',$ut_post)->get();
 
     foreach($resp as $respo){
-        $name = DB::table('users')->where('id', $respo->id_us_res)->get();
+        $name =User::where('id', $respo->id_us_res)->get();
+        return view('frontoffice.posts.post_details',['user'=>$user, 'post'=> $post, 'res'=> $res, 'name'=>$name]);
     }
 
-    return view('post_details',['user'=>$user, 'post'=> $post, 'res'=> $res, 'name'=>$name]);
-    return view('post_details',['user'=>$user, 'post'=> $post, 'res'=> $res]);
+
+    return view('frontoffice.posts.post_details',['user'=>$user, 'post'=> $post, 'res'=> $res]);
 }
 
     public function destroy($id)
     {
-        DB::table('responds')->where('id_post', $id)->delete();
-        DB::table('post')->where('id', $id)->delete();
+        Post::where('id', $id)->delete();
+        Respond::where('id_post', $id)->delete();
 
         return redirect('home');
     }
@@ -160,16 +155,16 @@ class PostController extends Controller
     public function uspost()
     {
         $id= auth()->user()->id;
-        $post=DB::table('post')->where('idut',$id)->get();
+        $post=Post::where('idut',$id)->get();
 
-        return view('post_profile',['post'=> $post]);
+        return view('frontoffice.posts.post_profile',['post'=> $post]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
 
 }

@@ -2,42 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07e1c0a5-7ebc-45cf-ac2c-9855df3d62fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/material/img/laravel (2).svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/main.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/market.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Market.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Market.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Respond.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/market/market_edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MarketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MarketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_21_162043_create_market_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_21_162043_create_market_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/chat.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/market.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/market.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/meu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/meu_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/meu_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post_edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/post_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/post_profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user_edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/market.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontoffice/market/market.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/meu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontoffice/users/meu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/meu_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontoffice/users/meu_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/market.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/market/market.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontoffice/posts/post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/post_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontoffice/posts/post_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/post_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontoffice/posts/post_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/post_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontoffice/posts/post_profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontoffice/posts/posts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/search.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontoffice/users/user_edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -177,16 +165,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\costa\Documents\Projects\first\resources" />
-      <recent name="C:\Users\costa\Documents\Projects\first\resources\sass" />
-      <recent name="C:\Users\costa\Documents\Projects\first\public" />
-      <recent name="C:\Users\costa\Documents\Projects\first\public\css" />
-      <recent name="C:\Users\costa\Documents\Projects\first\resources\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\costa\Documents\Projects\first\app\Http\Controllers" />
       <recent name="C:\Users\costa\Documents\Projects\first\resources\lang\pt" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\views\pages\post" />
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\views\pages\market" />
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\views" />
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\views\frontoffice\market" />
+      <recent name="C:\Users\costa\Documents\Projects\first\resources\views\frontoffice\posts" />
     </key>
   </component>
   <component name="RunDashboard">

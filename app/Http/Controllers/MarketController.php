@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
 
 use Response;
+use App\Market;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -65,25 +66,25 @@ class MarketController extends Controller
         $photo->move($destinationPath, $imageName);
 
         $nome = $request->input('nome');
-        $desc = $request->input('descricao');
-        $preco = $request->input('preco');
-        $ver=DB::table('market')->get('name');
-
+        $ver=Market::all('name');
         foreach ($ver as $names){
 
             if($names->name ==  $nome ) {
                 $erro='nada';
-                $prod=DB::table('market')->get();
-                return redirect()->route('table' );
+                $prod=Market::all();
+                return redirect()->route('market', ['ver' => $erro]);
             }
             else{
-                DB::table('market')
-                    ->insert(
-                        ['name' => $nome, 'descricao' => $desc, 'preco'=> $preco, 'image'=>$imageName,'created_at'=>NOW()]
-                    );
+
+                $prod = new Market;
+
+                $prod->name = $request->nome;
+                $prod->descricao = $request->descricao;
+                $prod->preco = $request->preco;
+                $prod->image = $imageName;
+                $prod->save();
                 $add='add';
-                $prod=DB::table('market')->get();
-                return redirect()->route('table');
+                return redirect()->route('market', ['ver' => $add]);
             }
 
         }
@@ -106,13 +107,13 @@ class MarketController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Request $request
      * @param int $id
      * @return void
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
-        //
+        $prod=Market::where('id',$id)->get();
+        return view('pages.market.market_edit', ['prod'=>$prod]);
     }
 
     /**
@@ -132,14 +133,12 @@ class MarketController extends Controller
         $desc = $request->input('descricao');
         $preco = $request->input('preco');
 
-        DB::table('market')
-            ->where('id', $id)
+       Market::where('id', $id)
             ->update(
                 ['name' => $nome, 'descricao' => $desc, 'preco'=> $preco, 'updated_at'=>NOW()]
             );
         $edit='edit';
-        $prod=DB::table('market')->get();
-        return redirect()->route('table');
+        return redirect()->route('market', ['ver' => $edit]);
     }
 
     /**
@@ -156,15 +155,15 @@ class MarketController extends Controller
      */
     public function destroy($id)
     {
-        $photo = DB::table('market')->where('id',$id)->get('image');
+        $photo = Market::where('id',$id)->get('image');
         foreach ($photo as $photos){
             $destinationPath = public_path('img/photos/'.$photos->image);
             File::delete($destinationPath);
         }
 
-        DB::table('market')->where('id', $id)->delete();
+        Market::where('id', $id)->delete();
 
-        $prod=DB::table('market')->get();
-        return view('pages.table_list',['prod'=>$prod]);
+        $del='del';
+        return redirect()->route('market', ['ver' => $del]);
     }
 }

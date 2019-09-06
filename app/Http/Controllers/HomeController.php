@@ -30,16 +30,16 @@ class HomeController extends Controller
         }
         elseif(auth()->user()->level == "1"){
             $user=auth()->user();
-            return view('meu', ['user' => $user]);
+            return view('frontoffice.users.meu', ['user' => $user]);
 
         }
 
     }
     public function details()
     {
-        $user=DB::table('users')->get();
+        $user=User::all();
         $details = auth()->user() ;
-        return  view('meu_details', ['details'=>$details, 'users'=>$user]);
+        return  view('frontoffice.users.meu_details', ['details'=>$details, 'users'=>$user]);
     }
     public function update(Request $request,$id)
     {
@@ -59,14 +59,14 @@ class HomeController extends Controller
         catch (\Exception $e){
             dd($e);
         }
-        $users = DB::table('users')->get();
+        $users = User::all();
         $details = auth()->user();
-        return view('meu_details',['users'=>$users, 'details'=> $details]);
+        return view('frontoffice.users.meu_details',['users'=>$users, 'details'=> $details]);
     }
     public function edit()
     {
         $details = auth()->user() ;
         $name = auth()->user()->name ;
-        return  view('user_edit', ['user'=>$name, 'details'=> $details]);
+        return  view('frontoffice.users.user_edit', ['user'=>$name, 'details'=> $details]);
     }
 }

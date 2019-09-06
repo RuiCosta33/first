@@ -65,50 +65,7 @@
             color: #999;
         }
     </style>
-    @if (auth()->check())
-        @if (auth()->user()->level == 4)
-            <br><br><h1>Mensagem</h1>
-                @foreach ($post as $posts)
-                    @foreach($user as $users)
-                                <div class="container darker">
-                                    <h3><p>{{$users->name}} - {{$posts->title}}</p>
-                                    <a>{{$posts->message}}</a></h3>
-                                    <span class="time-right">{{$posts->created_at}}</span>
-                                </div>
-                                @if(isset($res))<h3 align="left">Respostas : <br>
-                                    @foreach($res as $resp)
-                                        @foreach($name as $names)
 
-                                        <div class="darker">
-                                            <p  style="width:100%;">{{$names->name}}</p>
-                                            <p>{{$resp->respond}}</p>
-                                            <span class="time-right">{{$resp->created_at}}</span>
-                                        </div>
-
-
-                                        <br>
-                                        @endforeach
-                                        @endforeach</h3>
-                                    @endif
-
-<br>
-                            <form method="GET" action="{{ route('respond', [$users->id, $posts->id, $us_id=auth()->user()->id]) }}">
-                                @csrf
-                                @method('GET')
-                                <div class="container_message form-group">
-
-                                <textarea id="text" type="text" placeholder="Mensagem" class="form-control @error('text') is-invalid @enderror" name="text" value="{{ old('text') }}" required autocomplete="text"></textarea>
-                                <br>
-                                    <div class="form-group row mb-0" >
-                                        <button type="submit" class="btn btn-primary">
-                                            Publicar
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-            @endforeach
-            @endforeach
-        @else
 <br><br>
             <div class="container" align="justify">
                 @foreach ($post as $posts)
@@ -118,7 +75,7 @@
                     <h3 align="center"> {{ $posts->message }}</h3><br>
                     <span class="time-right">{{$posts->created_at}}</span>
                 </div></div><br>
-                    @if(isset($res))<u><h3 align="left">Respostas : <br></h3></u>
+                    @if(isset($name))<u><h3 align="left">Respostas : <br></h3></u>
                     @foreach($name as $names)
                         @foreach($res as $resp)<div  align="justify"><div class="col-md-12">
 
@@ -154,6 +111,4 @@
             </div>
             @endforeach
             @endforeach
-        @endif
-    @endif
 @endsection
