@@ -20,5 +20,6 @@ class Market extends Model
     protected $primaryKey = 'id';
 
 
+    protected $fillable = ['name','descricao','preco', 'image'];
 
 }

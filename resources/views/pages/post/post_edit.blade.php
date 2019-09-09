@@ -41,7 +41,7 @@
                                             <tbody>
                                             <tr>
                                                 <td><input class='w3-input' placeholder='Kinder de Mel' type='text' name='title' value='{{$posts->title}}'></td>
-                                                <td><input class='w3-input' name='text' placeholder='Sabe a coco' type='text' value='{{$posts->message}}'></td>
+                                                <td><input class='w3-input' name='message' placeholder='Sabe a coco' type='text' value='{{$posts->message}}'></td>
 
                                                 <td><button type='submit' class='btn btn-primary'>Editar</button></td>
                                             </tr>

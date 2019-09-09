@@ -45,7 +45,7 @@
                                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Mensagem') }}</label>
 
                                         <div class="col-md-6">
-                                            <textarea id="text" type="text" placeholder="Mensagem" class="form-control @error('text') is-invalid @enderror" name="text" value="{{ old('text') }}" required autocomplete="text"></textarea>
+                                            <textarea id="text" type="text" placeholder="Mensagem" class="form-control @error('text') is-invalid @enderror" name="message" value="{{ old('text') }}" required autocomplete="text"></textarea>
 
                                             @error('text')
                                             <span class="invalid-feedback" role="alert">

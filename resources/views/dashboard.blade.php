@@ -31,7 +31,7 @@
                 <i class="material-icons">store</i>
               </div>
               <p class="card-category">Revenue</p>
-              <h3 class="card-title">$34,245</h3>
+              <h3 class="card-title">$34,24</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
@@ -46,22 +46,7 @@
               <div class="card-icon">
                   <i class="fa fa-instagram"></i>
               </div>
-                <form  id="frm1" >
-                <input type="text" name="fname" value="Donald">
-                </form>
-                <button onclick="myFunction()">Try it</button>
-                <p id="demo" class="card-category"></p>
-                <script>
-                    function myFunction() {
-                        var x = document.getElementById("frm1");
-                        var text = "";
-                        var i;
-                        for (i = 0; i < x.length ;i++) {
-                            text += x.elements[i].value + "<br>";
-                        }
-                        document.getElementById("demo").innerHTML = text;
-                    }
-                </script>
+                <p class="card-category">You have</p>
               <h5 class="card-title">
                   <?php
                   $username = 'rui_costa_01';
@@ -73,10 +58,10 @@
                           $follower  = $data['graphql']['user']['edge_followed_by']['count'];
                           echo "{$follower} followers";
                       }
-
                   }
                   else echo "prank";
                   ?></h5>
+                <p class="card-category"> on instagram</p>
 
             </div>
 

@@ -32,9 +32,9 @@
 
                                         <tbody>
                                         <tr>
-                                            <td><input class='w3-input' placeholder=' Nome' type='text' name='nome' value=''></td>
+                                            <td><input class='w3-input' placeholder=' Nome' type='text' name='name' value=''></td>
                                             <td><input class='w3-input' placeholder=' Descricao' type='text' name='descricao' value=''></td>
-                                            <td><input class='w3-input' type='file' name='image' accept="image/*"></td>
+                                            <td><input class='w3-input' type='file' name='img' accept="image/*"></td>
                                             <td><input class='w3-input' placeholder= 'Preco' type='number' name='preco' value='' step="0.01"></td>
                                             <td>
                                                 <button type='submit' class='btn btn-primary'>Adicionar</button>

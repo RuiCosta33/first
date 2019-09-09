@@ -22,7 +22,7 @@
                                         <tbody>
                                         <tr>
                                             <td><input class='w3-input' placeholder='Title' type='text' name='title' ></td>
-                                            <td><input class='w3-input' placeholder='Message' type='text' name='text' ></td>
+                                            <td><input class='w3-input' placeholder='Message' type='text' name='message' ></td>
                                             <td><button type='submit' class='btn btn-primary'>Adicionar</button></td>
                                         </tr>
                                         </tbody>

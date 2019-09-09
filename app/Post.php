@@ -18,4 +18,6 @@ class Post extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+
+    protected $fillable = ['title','message','idut'];
 }

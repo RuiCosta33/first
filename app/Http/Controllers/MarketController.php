@@ -23,7 +23,7 @@ class MarketController extends Controller
      */
     public function index()
     {
-        $prod=DB::table('market')->get();
+        $prod=Market::all();
         return view('market', ['prod'=>$prod]);
     }
     /**
@@ -59,38 +59,25 @@ class MarketController extends Controller
      */
     public function store(Request $request)
     {
-        $photo = $request->file('image');
+        $photo = $request->file('img');
         $folder = 'photos';
         $imageName = time().'.'.$photo->getClientOriginalExtension();
         $destinationPath = public_path('/img/'.$folder);
         $photo->move($destinationPath, $imageName);
 
-        $nome = $request->input('nome');
-        $ver=Market::all('name');
-        foreach ($ver as $names){
+        $nome = $request->input('name');
+        $exists = Market::where('name',$nome)->exists();
 
-            if($names->name ==  $nome ) {
-                $erro='nada';
-                $prod=Market::all();
-                return redirect()->route('market', ['ver' => $erro]);
-            }
-            else{
-
-                $prod = new Market;
-
-                $prod->name = $request->nome;
-                $prod->descricao = $request->descricao;
-                $prod->preco = $request->preco;
-                $prod->image = $imageName;
-                $prod->save();
-                $add='add';
-                return redirect()->route('market', ['ver' => $add]);
-            }
-
+        if($exists){
+            return redirect()->route('market', ['ver' => 'nada']);
         }
 
+        $prod = new Market;
+        $prod->fill($request->all());
+        $prod->image=$imageName;
+        $prod->save();
 
-
+        return redirect()->route('market', ['ver' => 'add']);
     }
 
     /**
@@ -128,16 +115,23 @@ class MarketController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $market = Market::findOrFail($id);
+        if($request->hasFile('img')) {
+            $photo = $request->file('img');
+            $folder = 'photos';
+            $imageName = time() . '.' . $photo->getClientOriginalExtension();
+            $destinationPath = public_path('/img/' . $folder);
+            $photo->move($destinationPath, $imageName);
+            $market->image=$imageName;
+        }
 
-        $nome = $request->input('nome');
-        $desc = $request->input('descricao');
-        $preco = $request->input('preco');
+        $market->fill($request->all());
 
-       Market::where('id', $id)
-            ->update(
-                ['name' => $nome, 'descricao' => $desc, 'preco'=> $preco, 'updated_at'=>NOW()]
-            );
+        $market->updated_at=NOW();
+        $market->update();
+
         $edit='edit';
+
         return redirect()->route('market', ['ver' => $edit]);
     }
 
@@ -156,10 +150,13 @@ class MarketController extends Controller
     public function destroy($id)
     {
         $photo = Market::where('id',$id)->get('image');
+
         foreach ($photo as $photos){
             $destinationPath = public_path('img/photos/'.$photos->image);
+
             File::delete($destinationPath);
         }
+
 
         Market::where('id', $id)->delete();
 

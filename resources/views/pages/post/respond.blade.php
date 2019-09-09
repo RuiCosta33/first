@@ -49,13 +49,22 @@
                                         </tbody>
                                     </form>@endforeach
                             </table>
+                            @if($res == '[]')
+                                <div class="alert">
+                                    <span class="closebtn">&times;</span>
+                                    <strong>Oops!</strong> Not existir respostas! 👍
+                                </div>
+
+                            @else
                         <table class="table">
+
                             @if(isset($res))
                             <thead class=" text-primary">
                             <th>
                                 Respostas
                             </th>
                             </thead>
+
                             @foreach($res as $resp)
                                     <form method='POST' action='{{route('respond.destroy', $resp->id)}}' enctype="multipart/form-data" >
                                         @csrf
@@ -71,7 +80,7 @@
                             @endforeach
                             @endif
                         </table>
-                        @endif
+                        @endif @endif
                     </div>
                 </div>
             </div>

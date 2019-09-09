@@ -15,6 +15,9 @@
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>
+                                        Image
+                                    </th>
+                                    <th>
                                         Name
                                     </th>
                                     <th>
@@ -28,12 +31,13 @@
                                     </th>
                                     </thead>
                                     @foreach($prod as $prods)
-                                    <form method='POST' action='{{route('market.update', $prods->id)}}' enctype="multipart/form-data" >
+                                    <form method='POST' action="{{route('market.update', $prods->id)}}" enctype="multipart/form-data" >
                                         @csrf
 @method('PUT')
                                         <tbody>
                                         <tr>
-                                            <td><input class='w3-input' value='{{$prods->name}}' type='text' name='nome' value=''></td>
+                                            <td><input class='w3-input' value='{{$prods->image}}' type='file' name='img' value=''></td>
+                                            <td><input class='w3-input' value='{{$prods->name}}' type='text' name='name' value=''></td>
                                             <td><input class='w3-input'  value='{{$prods->descricao}}' type='text' name='descricao' value=''></td>
                                             <td><input class='w3-input'  value='{{$prods->preco}}' type='number' name='preco' value='' step="0.01"></td>
                                             <td>

@@ -56,14 +56,17 @@ class RespondController extends Controller
         $id_res=Respond::where('respond', $message)->get('respond');
 
         if($id_res != $message) {
+
             Respond::insert(
                     ['id_post' => $post, 'id_us_res' => $us_id, 'respond' => $message, 'created_at'=>NOW()]
                 );
+
             $post=Post::where('id',$post)->paginate(5);
             $user=User::where('id',$id)->get();
             $id_res=Respond::where('respond', $message)->get();
             return view('frontoffice.posts.posts',['user'=>$user, 'posts'=> $post, 'res'=>$id_res, 'bool'=> true]);
         }
+
         else{
             echo "prank2";exit;
         }
@@ -86,12 +89,14 @@ class RespondController extends Controller
      * @param $id
      * @return void
      */
+
     public function show($id)
     {
         $post=Post::where('id',$id)->get();
         $res=Respond::where('id_post', $id)->get();
         return view('pages.post.respond', ['post'=>$post, 'res'=>$res]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -101,7 +106,10 @@ class RespondController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $res=Respond::where('id',$id)->get();
+
+     return view('pages.post.resp_edit', ['res'=>$res]);
     }
 
     /**
@@ -113,12 +121,10 @@ class RespondController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $res = $request->input('respond');
-        Respond::where('id', $id)
-            ->update(
-                ['respond' => $res]
-            );
-        return redirect()->route('typography');
+        $res = Respond::findOrFail($id);
+        $res->fill($request->all());
+        $res->save();
+        return redirect()->route('post',['verr'=>'edit']);
     }
 
     /**
@@ -129,8 +135,9 @@ class RespondController extends Controller
      */
     public function destroy($id)
     {
+
         Respond::where('id', $id)->delete();
 
-            return redirect()->route('typography');
+            return redirect()->route('post', ['verr'=>'del']);
 }
 }

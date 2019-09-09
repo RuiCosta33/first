@@ -1,6 +1,11 @@
 @extends('layouts.app', ['activePage' => 'typography', 'titlePage' => __('Typography')])
 
 @section('content')
+    <style>
+        .alert.success {background-color: #4CAF50;}
+        .alert.info {background-color: #2196F3;}
+        .alert.warning {background-color: #ff9800;}
+    </style>
 <div class="content">
   <div class="container-fluid">
     <div class="card">
@@ -11,6 +16,60 @@
         <div class="card-body">
             <div class="table-responsive">
                 <a href="{{route('add_posts')}}" class='btn btn-primary'>Adicionar</a>
+                    @if(isset($_GET['ver']))
+
+                    {{!$ver=$_GET['ver']}}
+
+                    @if($ver=='nada')
+
+                        <div class="alert warning">
+                            <span class="closebtn">&times;</span>
+                            <strong>Repetided Post</strong> UI not amadorez jovem! 😎
+                        </div>
+                    @elseif($ver=='edit')
+                        <div class="alert success">
+                            <span class="closebtn">&times;</span>
+                            <strong>Successoz!</strong> IU editate a post! 👍
+                        </div>
+                    @elseif($ver=='del')
+                        <div class="alert">
+                            <span class="closebtn">&times;</span>
+                            <strong>Apagated!</strong> IU jast apagate a post! 👎
+                        </div>
+                    @else
+                        <div class="alert info">
+                            <span class="closebtn">&times;</span>
+                            <strong>Adicionated!</strong> IU adissionat a post! 🤙
+                        </div>
+                    @endif
+                @endif
+                @if(isset($_GET['verr']))
+
+                    {{!$ver=$_GET['verr']}}
+
+                    @if($ver=='nada')
+
+                        <div class="alert warning">
+                            <span class="closebtn">&times;</span>
+                            <strong>Repetided Resposta</strong> UI not amadorez jovem! 😎
+                        </div>
+                    @elseif($ver=='edit')
+                        <div class="alert success">
+                            <span class="closebtn">&times;</span>
+                            <strong>Successoz!</strong> IU editate a resposta! 👍
+                        </div>
+                    @elseif($ver=='del')
+                        <div class="alert">
+                            <span class="closebtn">&times;</span>
+                            <strong>Apagated!</strong> IU jast apagate a resposta! 👎
+                        </div>
+                    @else
+                        <div class="alert info">
+                            <span class="closebtn">&times;</span>
+                            <strong>Adicionated!</strong> IU adissionat a resposta! 🤙
+                        </div>
+                    @endif
+                @endif
                 @if(!isset($post))
                     <br><br>
                     <div class="alert alert-danger">

@@ -18,4 +18,6 @@ class Respond extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+
+    protected $fillable = ['id_post','id_us_res','respond'];
 }

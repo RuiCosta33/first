@@ -45,7 +45,7 @@
                                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Mensagem') }}</label>
 
                                         <div class="col-md-6">
-                                            <textarea id="text" type="text" value="{{$posts->message}}" class="form-control @error('text') is-invalid @enderror" name="text" value="{{$posts->message}}" required autocomplete="text">{{$posts->message}}</textarea>
+                                            <textarea id="text" type="text" value="{{$posts->message}}" class="form-control @error('text') is-invalid @enderror" name="message" value="{{$posts->message}}" required autocomplete="text">{{$posts->message}}</textarea>
 
                                             @error('text')
                                             <span class="invalid-feedback" role="alert">

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
@@ -31,7 +30,6 @@ class HomeController extends Controller
         elseif(auth()->user()->level == "1"){
             $user=auth()->user();
             return view('frontoffice.users.meu', ['user' => $user]);
-
         }
 
     }

@@ -20,9 +20,7 @@
                         <h3>Nao tem nenhum post!</h3>
                         @else
 
-
-                        @csrf
-                        @method('DELETE')
+                        
                         <table class="table table-striped col-md-12">
                         <thead>
                         <tr>
@@ -34,7 +32,9 @@
                             @foreach($post as $posts)
 
 
-                                <form method="POST" action="{{route('posts.destroy', $posts->id)}}">
+                                <form method="POST" action="{{route('post.destroy', $posts->id)}}">
+                                    @csrf
+                                    @method('DELETE')
                         <tbody>
                         <tr>
                             <td>{{$posts->title}}</td>
@@ -48,9 +48,9 @@
 
                             </td>
                         </tr>
-                        </tbody> @endforeach
+                        </tbody></form> @endforeach
                             @endif
-                    </table></form>
+                    </table>
 
 
 

@@ -17,6 +17,7 @@
                                         Resposta
                                     </th>
                                     </thead>
+
                                     @foreach($res as $resp)
                                         <form method='POST' action='{{route('respond.update', $resp->id)}}' enctype="multipart/form-data" >
                                             @csrf
@@ -30,7 +31,7 @@
                                             </tbody>
                                         </form>
                                     @endforeach
-                                @endif
+                                 @endif
                             </table>
                     </div>
                 </div>

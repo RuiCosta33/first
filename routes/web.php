@@ -1,4 +1,6 @@
 <?php
+
+use App\Market;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
@@ -56,12 +58,13 @@ Route::get('/insert', function(){ return view('add');})->name('add');
 Route::any('/search',function(){
 
     $q = Input::get ( 'q' );
-    $user = DB::table('market')->where('name','LIKE','%'.$q.'%')->orWhere('descricao','LIKE','%'.$q.'%')->get();
-    if(count($user) > 0)
-        return view('pages.search')->withDetails($user)->withQuery ( $q );
+    $user = Market::where('name','LIKE','%'.$q.'%')->orWhere('descricao','LIKE','%'.$q.'%')->get();
 
+    if(count($user) > 0){
+        return view('pages.search')->withDetails($user)->withQuery ( $q );
+    }
     else{
-        $user=DB::table('market')->paginate(5);
+        $user=Market::paginate(5);
     $alert='User not found';
         return view ( 'pages.market.market',  [ 'details'=>$user, 'ver'=>$alert]);}
 });

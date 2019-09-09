@@ -7,11 +7,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title ">Simple Table</h4>
+                            <h4 class="card-title ">ASDAS Table</h4>
                             <p class="card-category"> Here is a subtitle for this table</p>
                         </div>
 
-
+ @if(isset($details))
                         <div class="card-body">
                             <div class="table-responsive">
                                 <a href="{{route('add_prod')}}" class='btn btn-primary'>Adicionar</a>
@@ -41,7 +41,7 @@
 
 
                                         <br>
-                                        @if(isset($details))
+
                                                 <tbody>
                                                 @foreach($details as $user)
                                                     <tr>

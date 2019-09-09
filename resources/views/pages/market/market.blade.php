@@ -23,9 +23,10 @@
 
 
             <div class="table-responsive">
-                @if($_GET['ver'])
+                @if(isset($_GET['ver']))
 
                     {{!$ver=$_GET['ver']}}
+
                     @if($ver=='nada')
 
                         <div class="alert warning">
@@ -49,6 +50,7 @@
                         </div>
                         @endif
                 @endif
+                    @if(isset($prod))
                 <a href="{{route('add_prod')}}" class='btn btn-primary'>Adicionar</a>
               <table class="table">
                 <thead class=" text-primary">
@@ -72,8 +74,9 @@
                   </th>
                 </thead>
 
-                  @if(isset($prod))
+
                       @foreach($prod as $prods)
+
                           <form method='POST' action='{{route('market.destroy', $prods->id)}}' enctype="multipart/form-data" >
                               @csrf
                               @method('DELETE')
@@ -87,7 +90,14 @@
                                   <td><button type='submit' class='btn btn-primary'>Eliminar</button></td>
                               </tr>
                               </tbody>
-                          </form>@endforeach @endif
+                          </form>@endforeach
+                  @else
+                      <div class="alert">
+                          <span class="closebtn">&times;</span>
+                          <strong>Not encontrado!</strong> IU jast pesquizate a produto not existente! 👎
+                      </div>
+
+                  @endif
               </table>
             </div>
           </div>

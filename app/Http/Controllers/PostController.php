@@ -36,12 +36,20 @@ class PostController extends Controller
     public function create(Request $request){
 
         $post = new Post;
-$id=Auth::user()->id;
-        $post->title = $request->title;
-        $post->message = $request->text;
-        $post->idut = $id;
+        $id=Auth::user()->id;
+        $level=Auth::user()->level;
+
+        $post->fill($request->all());
+        $post->idut=$id;
+        $post->created_at=NOW();
         $post->save();
-        return redirect()->route('post');
+
+if($level == 4){
+    return redirect()->route('post', ['ver'=>'add']);
+}
+        else{
+            return redirect()->route('details');
+        }
     }
     /**
      * Store a newly created resource in storage.
@@ -65,17 +73,21 @@ $id=Auth::user()->id;
         $post=Post::paginate(5);
         return view('frontoffice.posts.posts', ['posts' => $post]);
     }
+
+
     public function basic()
     {
         $id = auth()->user()->id;
         return view('frontoffice.posts.post', ['id' => $id]);
     }
 
+
     public function form($id)
     {
         $post = Post::where('id', $id)->get();
         return view('frontoffice.posts.post_edit', ['post' => $post]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -95,11 +107,14 @@ $id=Auth::user()->id;
             Respond::insert(
                     ['id_post' => $post, 'id_us_res' => $us_id, 'respond' => $message, 'created_at'=>NOW()]
                 );
+
             $post=Post::where('id',$post)->paginate(5);
             $user=User::where('id',$id)->get();
             $id_res=Respond::where('respond', $message)->get();
+
             return view('frontoffice.posts.posts',['user'=>$user, 'posts'=> $post, 'res'=>$id_res, 'bool'=> true]);
         }
+
         else{
             echo "prank2";exit;
         }
@@ -114,19 +129,26 @@ $id=Auth::user()->id;
      */
     public function update(Request $request, $id)
 {
-    $title = $request->input('title');
-    $message = $request->input('text');
 
-    Post:: where('id', $id)
-        ->update(
-            ['title' => $title, 'message' => $message]
-        );
+        $level=Auth()->user()->level;
 
-    $user=User::paginate(5);
-    $details = auth()->user() ;
-    return redirect('post');
+        $post = Post::find($id);
+        $post->fill($request->all());
+        $post->updated_at=NOW();
+        $post->save();
+
+if($level == 4){
+
+    return redirect()->route('post',['ver'=>'edit']);
+}
+
+        else{
+            return redirect()->route('details');
+        }
 
 }
+
+
     public function details($id_post, $ut_post)
 {
 
@@ -149,7 +171,18 @@ $id=Auth::user()->id;
         Post::where('id', $id)->delete();
         Respond::where('id_post', $id)->delete();
 
-        return redirect('home');
+$level=Auth()->user()->level;
+
+if($level == 4){
+    return redirect('post', ['ver'=>'del']);
+}
+
+    else{
+        return redirect()->route('details');
+    }
+
+
+
     }
 
     public function uspost()

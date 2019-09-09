@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('pages.users.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        return view('pages.users.edit', compact('user'));
     }
 
     /**
@@ -67,8 +67,17 @@ class UserController extends Controller
             $request->merge(['password' => Hash::make($request->get('password'))])
                 ->except([$request->get('password') ? '' : 'password']
         ));
+if(auth()->user()->level == 4){
+    return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
+}
 
-        return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
+
+else{
+    return redirect()->route('details');
+}
+    
+
+        
     }
 
     /**
