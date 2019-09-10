@@ -3,6 +3,14 @@
 @section('content')
 
   <div class="content">
+
+          @if(isset($ver))
+
+              <div class="alert warning">
+                  <span class="closebtn">&times;</span>
+                  <strong>Not encontrado</strong> IU need to estudate! 😎
+              </div>
+          @endif
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6">

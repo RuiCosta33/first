@@ -12,6 +12,17 @@
       <div class="card-header card-header-primary">
         <h4 class="card-title">Material Dashboard Heading</h4>
         <p class="card-category">Created using Roboto Font Family</p>
+          <form action="/post_search" method="POST" role="search">
+              {{ csrf_field() }}
+              <div class="input-group">
+                  <input type="text" class="form-control" name="q"
+                         placeholder="Search Posts"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <i class="material-icons" height="1px">search</i>
+            </button>
+        </span>
+              </div>
+          </form>
       </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -73,7 +84,7 @@
                 @if(!isset($post))
                     <br><br>
                     <div class="alert alert-danger">
-                        <strong>Oops! 🤭 </strong> Not encontrado your produto.
+                        <strong>Oops! 🤭 </strong> Not encontrado your post.
                     </div>
                 @endif
                 @if(isset($post))

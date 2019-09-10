@@ -16,6 +16,17 @@
           <div class="card-header card-header-primary">
             <h4 class="card-title ">Simple Table</h4>
             <p class="card-category"> Here is a subtitle for this table</p>
+              <form action="/market_search" method="POST" role="search">
+                  {{ csrf_field() }}
+                  <div class="input-group">
+                      <input type="text" class="form-control" name="q"
+                             placeholder="Search products"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <i class="material-icons" height="1px">search</i>
+            </button>
+        </span>
+                  </div>
+              </form>
           </div>
 
 

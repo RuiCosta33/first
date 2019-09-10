@@ -1,6 +1,7 @@
 <?php
 
 use App\Market;
+use App\Post;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
@@ -32,12 +33,17 @@ Route::get('/meu_details', 'HomeController@details')->name('details');
 
 Route::get('/edit', 'HomeController@edit')->name('edit');
 
+Route::get('/market', 'MarketController@index')->name('market');
+
 Route::get('/edit_ad/{id}', 'UserController@edit')->name('edit_ad');
+
+
+Route::resource('market', 'MarketController');
 
 Route::resources([
                     'users' => 'UserController',
-                  'post'=>'PostController',
-                  'admin' => 'HomeController'
+                    'post'=>'PostController',
+                    'admin' => 'HomeController'
     ]);
 Route::resource('posts', 'PostController')->only([
     'destroy', 'destroy'
@@ -53,20 +59,56 @@ Route::get('/del/{id}',  'UserController@destroy')->name('del');
 Route::get('/insert', function(){ return view('add');})->name('add');
 
 
-
-
 Route::any('/search',function(){
 
     $q = Input::get ( 'q' );
-    $user = Market::where('name','LIKE','%'.$q.'%')->orWhere('descricao','LIKE','%'.$q.'%')->get();
+    $prod = Market::where('name','LIKE','%'.$q.'%')->orWhere('descricao','LIKE','%'.$q.'%')->get();
+    $users = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    $post = Post::where('title','LIKE','%'.$q.'%')->orWhere('message','LIKE','%'.$q.'%')->get();
 
-    if(count($user) > 0){
-        return view('pages.search')->withDetails($user)->withQuery ( $q );
+    if(count($prod)>0 or  count($users) > 0 or count($post)>0){
+        return view('pages.search.search', ['post'=>$post, 'prod'=>$prod,'users'=>$users])->withQuery ( $q );
     }
     else{
-        $user=Market::paginate(5);
+        $alert='User not found';
+
+        return view ( 'dashboard',  ['ver'=>$alert]);}
+});
+Route::any('/market_search',function(){
+
+    $q = Input::get ( 'q' );
+    $prod = Market::where('name','LIKE','%'.$q.'%')->orWhere('descricao','LIKE','%'.$q.'%')->get();
+
+    if(count($prod) > 0){
+        return view('pages.search.market_search')->withDetails($prod)->withQuery ( $q );
+    }
+    else{
+        $prod=Market::paginate(5);
     $alert='User not found';
-        return view ( 'pages.market.market',  [ 'details'=>$user, 'ver'=>$alert]);}
+        return view ( 'pages.market.market',  [ 'details'=>$prod, 'ver'=>$alert]);}
+});
+Route::any('/user_search',function(){
+    $q = Input::get ( 'q' );
+    $users = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+
+    if(count($users) > 0){
+        return view('pages.search.user_search')->withDetails($users)->withQuery ( $q );
+    }
+    else{
+        $users=User::paginate(5);
+        $alert='User not found';
+        return view ( 'pages.users.index',  [ 'details'=>$users, 'ver'=>$alert]);}
+});
+Route::any('/post_search',function(){
+    $q = Input::get ( 'q' );
+    $post = Post::where('title','LIKE','%'.$q.'%')->orWhere('message','LIKE','%'.$q.'%')->get();
+    if(count($post) > 0){
+        return view('pages.search.post_search')->withDetails($post)->withQuery ( $q );
+    }
+    else{
+        $post=Post::paginate(5);
+        $alert='User not found';
+        return view ( 'pages.post.typography',  [ 'details'=>$post, 'ver'=>$alert]);}
 });
 
 
@@ -86,7 +128,7 @@ Route::get('/add_post',  'HomeController@post')->name('add_post');
 
 Route::get('/respond/{id}/{post}/{us_id}',  'PostController@edit')->name('respond');
 
-Route::resource('market', 'MarketController');
+
 
 
 Auth::routes();
@@ -101,7 +143,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('market', function () {
         $prod = App\Market:: all();
-		 return view('pages.market.market',['prod' => $prod]);
+        if(auth()->user()->level == 4){
+            return view('pages.market.market',['prod' => $prod]);
+        }
+		else return view('frontoffice.market.market', ['prod'=>$prod]);
 	})->name('market');
 
     Route::get('market_edit/{id}', function ($id) {
@@ -130,6 +175,9 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.post.typography',['post'=>$post]);
 	})->name('post');
 
+    Route::get('date', function () {
+        return view('pages.date');
+    })->name('date');
 
 	Route::get('icons', function () {
 		return view('pages.icons');

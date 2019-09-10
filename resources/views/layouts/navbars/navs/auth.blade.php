@@ -15,7 +15,7 @@
             {{ csrf_field() }}
             <div class="input-group">
                 <input type="text" class="form-control" name="q"
-                       placeholder="Search products"> <span class="input-group-btn">
+                       placeholder="Search Anything"> <span class="input-group-btn">
             <button type="submit" class="btn btn-default">
                 <i class="material-icons" height="1px">search</i>
             </button>

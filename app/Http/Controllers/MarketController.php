@@ -24,7 +24,7 @@ class MarketController extends Controller
     public function index()
     {
         $prod=Market::all();
-        return view('market', ['prod'=>$prod]);
+        return view('frontoffice.market.market', ['prod'=>$prod]);
     }
     /**
      * Save an Image
@@ -115,6 +115,16 @@ class MarketController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $photo = Market::where('id',$id)->get('image');
+        $image=$request->file('img');
+        if($image != null){
+            foreach ($photo as $photos){
+                $destinationPath = public_path('img/photos/'.$photos->image);
+
+                File::delete($destinationPath);
+            }
+        }
+
         $market = Market::findOrFail($id);
         if($request->hasFile('img')) {
             $photo = $request->file('img');

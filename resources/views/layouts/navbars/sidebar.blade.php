@@ -48,6 +48,12 @@
             <p>{{ __('Post Control') }}</p>
         </a>
       </li>
+        <li class="nav-item{{ $activePage == 'date' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('date') }}">
+                <i class="material-icons">alarm</i>
+                <p>{{ __('Date - Time') }}</p>
+            </a>
+        </li>
       <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('icons') }}">
           <i class="material-icons">bubble_chart</i>
